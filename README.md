@@ -4,11 +4,11 @@ A simple library for running migrations against a SQL database.
 
 ## Usage
 
-```
+```bash
 go get -u -v github.com/jfmyers9/migrator
 ```
 
-```
+```golang
 migrator, err := migrator.New(db, migrations...)
 if err != nil {
   return err
@@ -20,7 +20,7 @@ if err != nil {
 }
 ```
 
-```
+```golang
 type CreateUsersTable struct {}
 
 func (m *CreateUsersTable) Name() string {
@@ -37,7 +37,7 @@ func (m *CreateUsersTable) Up(tx *sql.Tx) error {
     password_salt VARCHAR (255) NOT NULL,
     email VARCHAR (50) NOT NULL
     created_at TIMESTAMP NOT NULL
-  )`
+  )`)
   if err != nil {
     return err
   }
